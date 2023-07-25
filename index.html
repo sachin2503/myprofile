@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<style>
+ @media all and  (max-width:500px){
+    body{
+        background-color: rgb(0, 0, 0);
+    }
+    /* .container{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+    }   */
+
+
+    .card-wrapper{
+         position: absolute;
+         background-color: rgb(255, 255, 255);
+         opacity: 0.75;
+         border-radius: 20px;
+         margin-top: 30%;
+         margin-left: 30px;
+         width: 80%;
+         height: 65%;
+         text-align: center;
+
+    }
+    img{
+        position: absolute;
+        width:50%;
+        margin-top: 20%;
+        margin-left: -39%;
+        border-radius: 50%;
+    }
+    .user-name{
+        
+        position: absolute;
+        margin-top: 85%;
+        margin-left: 15%;
+        
+    }
+    .designation{
+        position: absolute;
+        color: black;
+        margin-top: 100%;
+        margin-left: 22%;
+    }
+    .bottom-group{
+        
+        position: absolute;
+        margin-top: 120%;
+        margin-left: 12%;
+    }
+   
+    .btn-follow{
+        margin-left: 5px;
+        position: absolute;
+        height: 36px;
+        width: 90px;
+    }
+  
+    .modal{
+        position: fixed;
+        scale: 0;
+        z-index: 1;
+        margin-top: 60%;
+        border: 3px solid white;
+        opacity: 0.80;
+        border-radius: 10px;
+        margin-left: 5px;
+        background-color: rgb(0, 0, 0);
+        width: 330px;
+        height: 140px;
+        transition: 0.5s ease-in-out;
+        
+    }
+
+    .overlay{
+        position: fixed;
+        background-color: #5f5f5f83;
+        top: 0;
+        opacity: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        transition: 0.5s ease-in-out;
+    }
+    .overlayactive{
+        opacity: 1;
+        pointer-events: initial;
+    }
+    .active{
+        scale: 1;
+    }
+    .modal-child1{
+        position: absolute;
+        margin-top: 4%;
+        margin-left: 15px;
+        width: 90%;
+        height: 15%;
+        
+        border-bottom: 2px solid white;
+    }
+    .modal-header{
+        position: absolute;
+        color: white;
+        font-size: 0.65rem;
+        margin-top: -7%;  
+    }
+    .fa-xmark{
+        position: absolute;
+        color: white;
+        margin-top: -1%;
+        margin-left: 98%;
+        
+    }
+    /* h3{
+        margin-top: 15%;
+        margin-left: 15px;
+        font-size: 15px;
+        color: white;
+    } */
+    .icon{
+        border-radius: 50%;
+        position: relative;
+        padding: 12px;
+        width: 2px;
+        height: 2px;
+        margin-left: 5%;
+        background-color: aliceblue;
+    }
+    #facebook{
+        border: 3px solid  rgb(54, 90, 200);
+        background-color: black;
+        color: rgb(54, 90, 200);
+    }
+    #facebook:hover{
+        border: black 3px solid;
+        background-color: white;
+        color: black;
+    }
+
+    #twitter{
+        border: 3px solid rgb(135, 255, 243);
+        background-color: black;
+        color: rgb(135, 255, 243);
+    }
+    #twitter:hover{
+        border: black 3px solid;
+        background-color: white;
+        color: black;
+    }
+
+    #instagram{
+        border: 3px solid rgb(255, 0, 242);
+        background-color: black;
+        color:rgb(255, 0, 242);
+    }
+    #instagram:hover{
+        border: black 3px solid;
+        background-color: white;
+        color: black;
+    }
+
+    #whatsapp{
+        border: 3px solid rgb(30, 255, 0);
+        background-color: black;
+        color: rgb(30, 255, 0);
+    }
+    #whatsapp:hover{
+        border: black 3px solid;
+        background-color: white;
+        color: black;
+    }
+    
+    #telegram{
+        border: 3px solid  rgb(54, 90, 200);
+        background-color: black;
+        color: rgb(54, 90, 200);
+    }
+    #telegram:hover{
+        border: black 3px solid;
+        background-color: white;
+        color: black;
+    }
+
+
+ } 
+</style>
+
+<body>
+
+
+<div class="wrapper">
+
+     <div class="card-wrapper">
+        <div>
+            <img src="sachin1.jpeg" alt="user">
+        </div>
+        <div class="user-name">
+            <h2>Sachin Durgude</h2>
+        </div>
+        <div class="designation">
+            <h3>Web Devloper</h3>
+
+        </div>
+        <div class="bottom-group">
+            <button onclick="openModal()" class="btn-share btn-card">
+            <i class="fa-solid fa-share"></i>
+            <div>Share my Profile</div>
+        </button>
+
+        <button class="btn-follow btn-card">Follow me</button>
+        </div>
+     </div>
+    </div>
+
+<div class="modal">
+    <div class="modal-child1">
+    <div class="modal-header">
+        <h1>Share My Profile</h1>
+    </div>
+    <div>
+    <i onclick="closeModal()" class="fa-solid fa-xmark close"></i>
+    </div>
+</div>
+
+<div>
+    <h3>Share this via</h3>
+    <br>
+    <div class="icon-container">
+        <a href="https://www.linkedin.com/in/sachin-durgude-a80140235/" class="icon" id="facebook">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/_Sachin2503" class="icon" id="twitter">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/_sachin508/?next=%2F" class="icon" id="instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/qr/34IOP2QUAYZGD1" class="icon" id="whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/sachin_2503" class="icon" id="telegram">
+            <i class="fa-brands fa-telegram"></i>
+        </a>
+    </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+<script>
+    const modal1 = document.querySelector(".modal");
+const overlay1 = document.querySelector(".overlay");
+
+const openModal = () => {
+    console.log('open');
+    modal1.classList.add("active");
+    overlay1.classList.add("overlayactive");
+};
+
+const closeModal = () => {
+    console.log('close');
+    modal1.classList.remove("active");
+    overlay1.classList.remove("overlayactive");
+};
+</script>
+
+
+</body>
+</html>
